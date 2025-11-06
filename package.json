@@ -1,6 +1,8 @@
 {
   "name": "n8n-mcp",
   "version": "2.22.10",
+  "type": "module",
+  "module": "src/index.ts",
   "description": "Integration between n8n workflow automation and Model Context Protocol (MCP)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +17,8 @@
     "n8n-mcp": "./dist/mcp/index.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "smithery build",
+    "build:tsc": "tsc -p tsconfig.build.json",
     "rebuild": "node dist/scripts/rebuild.js",
     "rebuild:optimized": "node dist/scripts/rebuild-optimized.js",
     "validate": "node dist/scripts/validate.js",
@@ -25,7 +28,7 @@
     "start:http:fixed": "MCP_MODE=http USE_FIXED_HTTP=true node dist/mcp/index.js",
     "start:n8n": "N8N_MODE=true MCP_MODE=http node dist/mcp/index.js",
     "http": "npm run build && npm run start:http:fixed",
-    "dev": "npm run build && npm run rebuild && npm run validate",
+    "dev": "smithery dev --no-minify",
     "dev:http": "MCP_MODE=http nodemon --watch src --ext ts --exec 'npm run build && npm run start:http'",
     "test:single-session": "./scripts/test-single-session.sh",
     "test:mcp-endpoint": "node scripts/test-mcp-endpoint.js",
@@ -121,6 +124,7 @@
   ],
   "devDependencies": {
     "@faker-js/faker": "^9.9.0",
+    "@smithery/cli": "^1.6.3",
     "@testing-library/jest-dom": "^6.6.4",
     "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.3",

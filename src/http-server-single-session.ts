@@ -1267,6 +1267,7 @@ export class SingleSessionHTTPServer {
       console.log(`Session Limits: ${MAX_SESSIONS} max sessions, ${this.sessionTimeout / 1000 / 60}min timeout`);
       console.log(`Health check: ${endpoints.health}`);
       console.log(`MCP endpoint: ${endpoints.mcp}`);
+      console.log(`CORS configuration: ${process.env.CORS_ORIGIN || '*'}`);
       
       if (isProduction) {
         console.log('🔒 Running in PRODUCTION mode - enhanced security enabled');
