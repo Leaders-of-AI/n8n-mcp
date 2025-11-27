@@ -1,1 +1,13 @@
 runtime: "typescript"
+
+# Environment variables
+# These can be overridden in the Smithery dashboard
+env:
+  # Required: Set your own secure token in Smithery dashboard
+  # Generate with: openssl rand -base64 32
+  AUTH_TOKEN: "REPLACE_WITH_YOUR_SECURE_TOKEN_IN_SMITHERY_DASHBOARD_MIN_32_CHARS"
+
+  # Server configuration
+  MCP_MODE: "http"
+  PORT: "3000"
+  NODE_ENV: "production"

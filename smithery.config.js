@@ -16,11 +16,19 @@ export default {
 
     // Set Node.js target version
     target: "node22",
-    
+
     // Ensure we're building for Node.js
     platform: "node",
-    
+
     // Use CJS format
     format: "cjs",
   },
+
+  // Include database and other assets in deployment
+  copyAssets: [
+    {
+      from: "data/nodes.db",
+      to: "data/nodes.db"
+    }
+  ],
 };
